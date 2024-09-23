@@ -4,8 +4,23 @@
 
 //Variabelen vullen
 $attractie = $_POST['attractie'];
+if(empty($attractie))
+{
+    $errors[]="Vul de attractie-naam in.";
+}
+
 $type = $_POST['type'];
+if(empty($type))
+{
+    $errors[]="Vul het type in.";
+}
+
 $capaciteit = $_POST['capaciteit'];
+if(!is_numeric($capaciteit))
+{
+    $errors[]="Vul voor capaciteit een geldig getal in.";
+}
+
 if(isset($_POST['prioriteit']))
 {
     $prioriteit = true;
@@ -14,6 +29,11 @@ else{
     $prioriteit = false;
 }
 $melder = $_POST['melder'];
+if(empty($melder))
+{
+    $errors[]="Vul de melder in.";
+}
+
 $overig = $_POST['overig'];
 
 // echo $attractie . " / " . $capaciteit . " / " . $melder;
